@@ -7,8 +7,8 @@
 | This Class is responsible for the table pattern, with it you create the
 | Tables for the database.
 | 
-| Honestly, was inspired from laravel framework, so credit to these guys really 
-| great work !
+| Honestly, creating this here I was inspired from laravel framework, so credit to Laravel
+| Team! great work !
 |
 */
 class TableBlueprint

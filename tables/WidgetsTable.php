@@ -1,9 +1,17 @@
 <?php
 
-
+/*
+|--------------------------------------------------------------------------
+| WidgetsTable Class
+|--------------------------------------------------------------------------
+| this class creates or drop the widgets table
+| 
+*/
 class WidgetsTable extends Migrate
 {
-
+	/**
+	 * Here you create the table
+	 */
 	public function create()
 	{
 		$this->db->create('widgets', function(TableBlueprint $table)
@@ -15,6 +23,9 @@ class WidgetsTable extends Migrate
 		});
 	}
 
+	/**
+	 * Here you drop the table
+	 */
 	public function drop()
 	{
 		$this->db->drop('widgets');

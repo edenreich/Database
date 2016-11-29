@@ -1,10 +1,9 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | AdminsTable Class
 |--------------------------------------------------------------------------
-| this class creates or drop the admin table
+| this class creates or drop the admins table
 | 
 */
 class AdminsTable extends Migrate

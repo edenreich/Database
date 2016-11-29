@@ -1,5 +1,14 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Init File
+|--------------------------------------------------------------------------
+| the logic here you would probably want to do in an init file.
+| 
+|
+*/
+
 /**
  * for simplicity I use here spl_autoload_register, you could choose to use psr autoload  
  * with composer
@@ -12,8 +21,6 @@ spl_autoload_register(function($class)
 	else if(file_exists('tables/' . $class  .'.php'))
 		require_once 'tables/' . $class  .'.php';
 });
-
-
 
 /**
  * You create your database object and inject it to the classes.
