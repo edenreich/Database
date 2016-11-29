@@ -13,9 +13,9 @@
 */
 class TableBlueprint
 {
-	protected $columns = [],
-			  $name = '',
-			  $primaryKey = '';
+	protected 	$columns = [],
+		      	$name = '',
+				$primaryKey = '';
 	
 	/**
 	 * We setting the $tableName and the logger	
@@ -216,5 +216,4 @@ class TableBlueprint
 
 		$this->set($columnName, $default);
 	}
-
 }
