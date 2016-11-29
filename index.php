@@ -22,26 +22,35 @@ spl_autoload_register(function($class)
 		require_once 'tables/' . $class  .'.php';
 });
 
-/**
- * You create your database object and inject it to the classes.
- */
-$mysqli = new mysqli('localhost', 'my_user', 'my_password', 'my_db');
+
 
 /**
- * You create the object that will eventually execute the queries. 
+ * creating the database object and inject it to the classes.
  */
-$usersTable = new UsersTable($mysqli);
-$adminsTable = new AdminsTable($mysqli);
-$widgetsTable = new WidgetsTable($mysqli);
+$credentials = array(
+					'host' => 'localhost',
+					'username' => 'root',
+					'password' => '',
+					'name' => 'my_db'
+				);
+
+$connection = Database::connect($credentials);
+
+/**
+ * creating the objects that will eventually execute the queries. 
+ */
+$usersTable = new UsersTable($connection);
+$adminsTable = new AdminsTable($connection);
+$widgetsTable = new WidgetsTable($connection);
 
 /**
  * Now you can simply create the tables or drop them if needed 
  */
-$usersTable->create();
-$adminsTable->create();
+// $usersTable->create();
+// $adminsTable->create();
 $widgetsTable->create();
 
 // if needed you can drop them as well, nothing fancy :-)
-$widgetsTable->drop();
+// $widgetsTable->drop();
 
 ?>

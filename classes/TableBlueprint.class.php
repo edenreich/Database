@@ -23,7 +23,6 @@ class TableBlueprint
 	 * We setting the $tableName and the logger	
 	 *
 	 * @param String | $tableName
-	 * @param Object | $logger
 	 */
 	public function __construct($tableName)
 	{
