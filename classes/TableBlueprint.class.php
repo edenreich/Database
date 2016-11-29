@@ -13,9 +13,11 @@
 */
 class TableBlueprint
 {
-	protected 	$columns = [],
-		      	$name = '',
-				$primaryKey = '';
+	protected $columns = [];
+
+	protected $name = '';
+				
+	protected $primaryKey = '';
 	
 	/**
 	 * We setting the $tableName and the logger	
