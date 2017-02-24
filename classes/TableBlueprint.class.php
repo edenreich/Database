@@ -6,23 +6,39 @@
 |--------------------------------------------------------------------------
 | This Class is responsible for the table pattern, with it you create the
 | Tables for the database.
+| Inspired from Laravel Framework, created it for my own perposes. So it looks very similar only
+| here obviously there is less functionallity.
+| There is probably a bit of redundancy code and it could be done better so feel free to make any suggestions.
 | 
-| Honestly, creating this here I was inspired from laravel framework, so credit to Laravel
-| Team! great work !
-|
+| @autor Eden Reich
 */
 class TableBlueprint
 {
+	/**
+	 * Stores all the columns.	
+	 *
+	 * @var array
+	 */
 	protected $columns = [];
-
+	
+	/**
+	 * The table name.	
+	 *
+	 * @var string
+	 */
 	protected $name = '';
-				
-	protected $primaryKey = '';
+	
+	/**
+	 * The primary key of the to be created table.	
+	 *
+	 * @var string
+	 */
+	protected $primaryKey = 'id';
 	
 	/**
 	 * We setting the $tableName and the logger	
 	 *
-	 * @param String | $tableName
+	 * @param string | $tableName
 	 */
 	public function __construct($tableName)
 	{
@@ -32,9 +48,9 @@ class TableBlueprint
 	/**
 	 * This method saves a column from type of a string.
 	 *
-	 * @param String | $columnName
-	 * @param Integer | $charsCount
-	 * @param Mixed | $extra
+	 * @param string | $columnName
+	 * @param integer | $charsCount
+	 * @param mixed | $extra
 	 */
 	public function string($columnName, $charsCount = 255, $extra = null)
 	{
@@ -50,9 +66,9 @@ class TableBlueprint
 	/**
 	 * This method saves a column from type of an integer.
 	 *
-	 * @param String | $columnName
-	 * @param Integer | $charsCount
-	 * @param Mixed | $extra
+	 * @param string | $columnName
+	 * @param integer | $charsCount
+	 * @param mixed | $extra
 	 */
 	public function integer($columnName, $charsCount = 11, $extra = null)
 	{
@@ -68,7 +84,7 @@ class TableBlueprint
 	/**
 	 * This method sets the column to be as the primary key.
 	 *
-	 * @param String | $columnName
+	 * @param string | $columnName
 	 */
 	public function primary($columnName)
 	{
@@ -79,10 +95,10 @@ class TableBlueprint
 	}
 
 	/**
-	 * This method sets the extra rules for the fields
+	 * This method sets the extra rules for the fields.
 	 *
-	 * @param String | $columnName
-	 * @param String | $extra
+	 * @param string | $columnName
+	 * @param string | $extra
 	 */
 	protected function set($columnName, $extrasOrExtra)
 	{
@@ -135,7 +151,7 @@ class TableBlueprint
 	/**
 	 * A Getter for the table name.
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function getName()
 	{
@@ -145,7 +161,7 @@ class TableBlueprint
 	/**
 	 * A Getter for the columns.
 	 *
-	 * @param Array
+	 * @param array
 	 */
 	public function getColumns()
 	{
@@ -155,7 +171,7 @@ class TableBlueprint
 	/**
 	 * This method builds the query for executing.
 	 *
-	 * @return String
+	 * @return string
 	 */
 	public function buildQuery() 
 	{
@@ -202,10 +218,10 @@ class TableBlueprint
 	}
 
 	/**
-	 *	This method saves column from type of a Boolean.
+	 * This method saves column from type of a Boolean.
 	 *
-	 *  @param String | $columnName
-	 *  @param String | $default
+	 * @param string | $columnName
+	 * @param string | $default
 	 */
 	public function boolean($columnName, $default = 0)
 	{
