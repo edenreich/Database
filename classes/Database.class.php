@@ -7,36 +7,42 @@
 | This class works according to the singleton pattern
 | It will give you only one connection at a time.
 |
-| Copyright Eden Reich, all rights reserved.
+| @author Eden Reich
 */
 class Database
 {
 	/**
-	 *	This property stores the instance of the connection.
+	 * This property stores the instance of the connection.
+	 *
+	 * @var int
 	 */
 	protected static $instance = null;
 
 	/**
-	 *	This property stores the database object(in that case mysqli).
+	 * This property stores the database object(in that case mysqli).
+	 *
+	 * @var object
 	 */
 	protected $db;
 
 	/**
-	 *	This property stores the query.
+	 * This property stores the query.
+	 *
+	 * @var string
 	 */
-	protected $query = '';
+	protected $query;
 
 	/**
-	 *	The constructor will attempt to connect to the database.
+	 * The constructor will attempt to connect to the database.
 	 *
-	 *  @param Array | $credentials	
+	 * @param array | $credentials	
 	 */
 	private function __construct(Array $credentials)
 	{
 		$db = @mysqli_connect($credentials['host'], 
-							  $credentials['username'], 
-							  $credentials['password'], 
-							  $credentials['name']);
+				      $credentials['username'], 
+				      $credentials['password'], 
+				      $credentials['name']);
 		
 		if(mysqli_connect_errno())
 		{
@@ -53,12 +59,11 @@ class Database
 	}
 
 	/**
-	 *	This method is just to make sure we are not already connected,
-	 *	if so it will give us the existing connection.
+	 * This method is just to make sure we are not already connected,
+	 * if so it will give us the existing connection.
 	 *
-	 *  @param Array | $credentials
-	 *
-	 *	@return Instance
+	 * @param array | $credentials
+	 * @return instance
 	 */
 	public static function connect(Array $credentials)
 	{
@@ -73,7 +78,7 @@ class Database
 	/**
 	 * This method get the available connection.
 	 *
-	 * @return Object
+	 * @return object
 	 */
 	public function getConnection()
 	{
@@ -84,8 +89,8 @@ class Database
 	/**
 	 * This method creates the table we want in the database.
 	 *
-	 * @param String | $table
-	 * @param Function | $callback
+	 * @param string | $table
+	 * @param function | $callback
 	 */
 	public function create($tableName, Closure $callback = null)
 	{
@@ -106,7 +111,7 @@ class Database
 	/**
 	 * This method simply drops the table we specify in the database.
 	 *
-	 * @param String | $table
+	 * @param string | $table
 	 */
 	public function drop($tableName)
 	{
@@ -115,11 +120,10 @@ class Database
 	}
 
 	/**
-	 *	This method checks if  table is not exists.
+	 * This method checks if  table is not exists.
 	 *
-	 *  @param String | $tableName
-	 *
-	 *	@return Boolean
+	 * @param string | $tableName
+	 * @return boolean
 	 */
 	protected function notExists($tableName)
 	{
@@ -133,11 +137,10 @@ class Database
 	}
 
 	/**
-	 *	This method checks if  table is exist.
+	 * This method checks if table is exist.
 	 *
-	 *  @param String | $tableName
-	 *
-	 *	@return Boolean
+	 * @param string | $tableName
+	 * @return boolean
 	 */
 	protected function exists($tableName)
 	{
@@ -154,8 +157,8 @@ class Database
 	 * This method looks up the database for a record
 	 * by it's Id.
 	 *
-	 * @param Integer | $id
-	 * @param String | $tableName
+	 * @param integer | $id
+	 * @param string | $tableName
 	 *	
 	 * @todo look up for the user with the matching $id in the database.
 	 */
@@ -167,8 +170,8 @@ class Database
 	/**
 	 * This method inserts the data to the database.
 	 *
-	 * @param Integer | $id
-	 * @param String | $tableName
+	 * @param integer | $id
+	 * @param string | $tableName
 	 *	
 	 * @todo insert the data of that model to the specified table in the database.
 	 */
@@ -180,9 +183,9 @@ class Database
 	/**
 	 * This method provide us 'Select [columns] from ' as for our query.
 	 *
-	 * @param Array | $columns
+	 * @param array | $columns
 	 *
-	 * @return String 
+	 * @return string 
 	 */
 	public function select($columns = array('*'))
 	{
@@ -194,9 +197,8 @@ class Database
 	/**
 	 * This method provide us the next part of the query.
 	 *
-	 * @param String | $tableName
-	 *
-	 * @return String 
+	 * @param string | $tableName
+	 * @return string 
 	 */
 	public function from($tableName)
 	{
@@ -208,7 +210,7 @@ class Database
 	/**
 	 * This method fetchs the results.
 	 *
-	 * @return Object 
+	 * @return object 
 	 */
 	public function get()
 	{
@@ -247,9 +249,9 @@ class Database
 	/**
 	 * This method fetchs all the results from a specific table.
 	 *
-	 * @param String | $tableName
+	 * @param string | $tableName
 	 * 
-	 * @return Object 
+	 * @return object 
 	 */
 	public function all($tableName) 
 	{
