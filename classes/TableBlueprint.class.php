@@ -10,7 +10,7 @@
 | here obviously there is less functionallity.
 | There is probably a bit of redundancy code and it could be done better so feel free to make any suggestions.
 | 
-| @autor Eden Reich
+| @author Eden Reich
 */
 class TableBlueprint
 {
