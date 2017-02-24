@@ -28,11 +28,11 @@ spl_autoload_register(function($class)
  * creating the database object and inject it to the classes.
  */
 $credentials = array(
-					'host' => 'localhost',
-					'username' => 'root',
-					'password' => '',
-					'name' => 'my_db'
-				);
+		'host' => 'localhost',
+		'username' => 'root',
+		'password' => '',
+		'name' => 'my_db'
+	       );
 
 $connection = Database::connect($credentials);
 
